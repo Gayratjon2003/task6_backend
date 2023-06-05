@@ -18,17 +18,17 @@ const User = mongoose.model("User", userSchema);
 
 function validateUser(user) {
   const schema = {
-    recipient: Joi.string().min(1).max(50).required(),
-    user: Joi.string().min(1).max(50).required(),
-    title: Joi.string().min(1).max(255).required(),
-    message: Joi.string().min(3).max(4048).required(),
+    recipient: Joi.string().min(0).max(50).required(),
+    user: Joi.string().min(0).max(50).required(),
+    title: Joi.string().min(0).max(255).required(),
+    message: Joi.string().min(0).max(4048).required(),
   };
 
   return Joi.validate(user, schema);
 }
 function validateGetUser(user) {
   const schema = {
-    recipient: Joi.string().min(1).max(50).required(),
+    recipient: Joi.string().min(0).max(50).required(),
   };
 
   return Joi.validate(user, schema);
